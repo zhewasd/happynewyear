@@ -3,63 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新年跨年烟花</title>
+    <title>祝福跨年</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             background-color: #000;
+            font-family: Arial, sans-serif;
+            color: #fff;
         }
         
-        .firework {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #fff;
-            border-radius: 50%;
-            animation: fireworks 1s infinite;
-        }
-        
-        @keyframes fireworks {
-            0% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(3);
-            }
+        .countdown {
+            font-size: 48px;
         }
     </style>
 </head>
 <body>
+    <div class="countdown">
+        <span id="days"></span> 天
+        <span id="hours"></span> 时
+        <span id="minutes"></span> 分
+        <span id="seconds"></span> 秒
+    </div>
+
     <script>
-        // 创建烟花效果
-        function createFirework() {
-            const firework = document.createElement('div');
-            firework.classList.add('firework');
-        
-            const { innerWidth, innerHeight } = window;
-            const x = Math.random() * innerWidth;
-            const y = Math.random() * innerHeight;
-        
-            firework.style.left = x + 'px';
-            firework.style.top = y + 'px';
-        
-            document.body.appendChild(firework);
-        
-            setTimeout(() => {
-                firework.remove();
-            }, 1000);
+        // 设置跨年日期
+        const countdownDate = new Date('January 1, 2022 00:00:00').getTime();
+
+        // 更新倒计时
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            // 计算剩余的天、时、分、秒
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // 更新页面上的倒计时显示
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
         }
-        
-        // 在页面加载完成后触发
-        window.addEventListener('load', () => {
-            setInterval(() => {
-                createFirework();
-            }, 500);
-        });
+
+        // 每秒钟更新倒计时
+        setInterval(() => {
+            updateCountdown();
+        }, 1000);
     </script>
 </body>
 </html>
