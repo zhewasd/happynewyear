@@ -236,18 +236,17 @@ S.UI = (function () {
         value = parseInt(value, 10) || 10;
         value = value > 0 ? value : 10;
 
-        timedAction(function (index) {
-          if (index === 0) {
-            if (sequence.length === 0) {
-              S.Shape.switchShape(S.ShapeBuilder.letter(''));
-            } else {
-              performAction(sequence);
-            }
-          } else {
-            S.Shape.switchShape(S.ShapeBuilder.letter(index), true);
-          }
-        }, 1000, value, true);
-        break;
+  timedAction(function (index) {
+  if (index === 0) {
+    if (sequence.length === 0) {
+      S.Shape.switchShape(S.ShapeBuilder.letter(''));
+    } else {
+      performAction(sequence);
+    }
+  } else {
+    S.Shape.switchShape(S.ShapeBuilder.letter(index), true);
+  }
+}, 1000, value, true);
 
       case 'rectangle':
         value = value && value.split('x');
