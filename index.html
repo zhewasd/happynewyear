@@ -31,6 +31,23 @@
     <audio src="http://music.163.com/song/media/outer/url?id=41667067.mp3" autoplay="autoplay"></audio>
 <script>
 
+       // 获取当前时间
+        var currentDate = new Date();
+
+        // 设置特定时间：2023年12月31日23:59:55
+        var targetDate = new Date("2023-12-29T20:20:00");
+
+        // 检查当前时间是否晚于特定时间
+        if (currentDate > targetDate) {
+            // 如果当前时间晚于特定时间，直接显示内容
+            document.getElementById("countdown").style.display = "block";
+        } else {
+            // 如果当前时间早于或等于特定时间，设置定时器来检测并延迟显示内容
+            var timeRemaining = targetDate.getTime() - currentDate.getTime();
+            setTimeout(function() {
+                document.getElementById("countdown").style.display = "block";
+            }, timeRemaining);
+        }
 var str_text='新年倒计时|五|四|三|二|一|2024|新年快乐！|单生狗|何玮哲|ヾ(≧▽≦*)o'
 
 var S = {
