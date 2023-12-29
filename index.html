@@ -1,1 +1,65 @@
-
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年跨年烟花</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+        
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: fireworks 1s infinite;
+        }
+        
+        @keyframes fireworks {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 创建烟花效果
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+        
+            const { innerWidth, innerHeight } = window;
+            const x = Math.random() * innerWidth;
+            const y = Math.random() * innerHeight;
+        
+            firework.style.left = x + 'px';
+            firework.style.top = y + 'px';
+        
+            document.body.appendChild(firework);
+        
+            setTimeout(() => {
+                firework.remove();
+            }, 1000);
+        }
+        
+        // 在页面加载完成后触发
+        window.addEventListener('load', () => {
+            setInterval(() => {
+                createFirework();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
