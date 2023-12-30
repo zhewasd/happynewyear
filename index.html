@@ -29,44 +29,10 @@
       </div>
     </div>
     <audio src="http://music.163.com/song/media/outer/url?id=41667067.mp3" autoplay="autoplay"></audio>
-    <div id="countdown"></div>
-  <style>
-    #countdown {
-  font-size: 80px;
-  font-weight: bold;
-  text-align: center;
-}
-    </style>
-    
+
     
 <script>
-  // 设置倒计时日期
-var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
 
-// 更新倒计时
-var x = setInterval(function() {
-
-  // 获取当前时间
-  var now = new Date().getTime();
-
-  // 计算剩余时间
-  var distance = countDownDate - now;
-
-  // 计算天、时、分、秒
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // 显示倒计时
-  document.getElementById("countdown").innerHTML = days + "天 " + hours + "时 " + minutes + "分 " + seconds + "秒";
-
-  // 如果倒计时结束，则停止
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown").innerHTML = "倒计时结束";
-  }
-}, 1000);
   
 var str_text='新年|倒计时|五|四|三|二|一|2024|新年快乐！|帅哥|何玮哲|祝你|2024年|一切顺利|ヾ(≧▽≦*)o'
 
